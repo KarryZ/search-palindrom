@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+	<html lang="ru">
+	<head>
+	<meta charset="utf-8">
+	</head>
+	<body>  
+
+	   <input type="text" value="" id="user_text">
+	   <input type="button" value="Поиск!" onclick="searchPalindrom()">
+
+	   <div id="resultBlock">
+	   	<p>Палиндромы:</p>
+	   </div>
+
+
+	   <script type="text/javascript">
+
+	   	function getUserInput(){
+	   		return document.getElementById("user_text").value;
+
+	   	};
+
+	   	function searchPalindrom(){
+	   		var textArr = getUserInput().split(" ");
+	   		var result = [];
+
+	   		for (var i = 0; i < textArr.length; i++) {
+
+	   			var reverseArr = textArr[i].split("").reverse().join("");
+
+	   			if ( textArr[i].length >=3 && textArr[i] == reverseArr) {
+	   				result.push(textArr[i]);
+    			};
+   			         
+	   		}; 
+            showResult(result);
+	   	};
+
+	   	function showResult(result) {
+	   		var divResult = document.getElementById("resultBlock");	
+
+	   		for(var i = 0; i < result.length; i++){
+            	var div = document.createElement("div");
+            	div.innerText = result[i];
+            	divResult.appendChild(div);
+	   		}
+	   	};
+
+	   	searchPalindrom();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     </script>
+	</body>
+	</html>
